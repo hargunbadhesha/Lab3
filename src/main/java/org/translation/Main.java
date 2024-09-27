@@ -48,8 +48,8 @@ public class Main {
             if (QUIT.equals(language)) {
                 break;
             }
-            String countryCode = countryCodeConverter.fromCountry(country);
-            String languageCode = languageCodeConverter.fromLanguage(language);
+            String countryCode = COUNTRY_CODE_CONVERTER.fromCountry(country);
+            String languageCode = LANGUAGE_CODE_CONVERTER.fromLanguage(language);
             System.out.println(country + " in " + language + " is " + translator.translate(countryCode, languageCode));
             System.out.println("Press enter to continue or quit to exit.");
             Scanner s = new Scanner(System.in);
@@ -67,7 +67,7 @@ public class Main {
         // Convert country codes to country names
         List<String> countryNames = new ArrayList<>();
         for (String countryCode : countries) {
-            countryNames.add(countryCodeConverter.fromCountryCode(countryCode));
+            countryNames.add(COUNTRY_CODE_CONVERTER.fromCountryCode(countryCode));
         }
 
         // Sort country names alphabetically
@@ -93,7 +93,7 @@ public class Main {
         // Convert language codes to language names
         List<String> languageNames = new ArrayList<>();
         for (String languageCode : languages) {
-            languageNames.add(languageCodeConverter.fromLanguageCode(languageCode));
+            languageNames.add(LANGUAGE_CODE_CONVERTER.fromLanguageCode(languageCode));
         }
 
         // Sort language names alphabetically

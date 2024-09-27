@@ -20,7 +20,6 @@ public class LanguageCodeConverter {
      * in the resources folder.
      */
     public LanguageCodeConverter() {
-
         this("language-codes.txt");
     }
 

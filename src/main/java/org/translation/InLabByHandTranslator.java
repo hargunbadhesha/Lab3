@@ -10,6 +10,7 @@ import java.util.List;
 public class InLabByHandTranslator implements Translator {
     // Static variable definition should be placed before other methods
     public static final String CANADA = "can";
+
     /**
      * Returns the language abbreviations for all languages whose translations are
      * available for the given country.
@@ -26,6 +27,7 @@ public class InLabByHandTranslator implements Translator {
         }
         return new ArrayList<>();
     }
+
     /**
      * Returns the country abbreviations for all countries whose translations are
      * available from this Translator.
@@ -46,29 +48,26 @@ public class InLabByHandTranslator implements Translator {
      * @return the name of the country in the given language or null if no translation is available
      */
 
-    @SuppressWarnings("checkstyle:MultipleStringLiterals")
     @Override
     public String translate(String country, String language) {
-        if (!country.equals(CANADA)) {
-            return null;
+        // Declare a variable to hold the result
+        String result = null;
+
+        // Check if the country is CANADA
+        if (CANADA.equals(country)) {
+            // Check for the language and assign the appropriate translation to the result
+            if ("de".equals(language)) {
+                result = "Kanada";
+            }
+            else if ("en".equals(language) || "es".equals(language) || "fr".equals(language)) {
+                result = "Canada";
+            }
+            else if ("zh".equals(language)) {
+                result = "加拿大";
+            }
         }
-        if ("de".equals(language)) {
-            return "Kanada";
-        }
-        else if ("en".equals(language)) {
-            return "Canada";
-        }
-        else if ("zh".equals(language)) {
-            return "加拿大";
-        }
-        else if ("es".equals(language)) {
-            return "Canada";
-        }
-        else if ("fr".equals(language)) {
-            return "Canada";
-        }
-        else {
-            return null;
-        }
+
+        // Return the result (it will be null if no valid translation is found)
+        return result;
     }
 }

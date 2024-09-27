@@ -16,8 +16,8 @@ import java.util.Scanner;
  */
 public class Main {
     private static final String QUIT = "quit";
-    private static final CountryCodeConverter countryCodeConverter = new CountryCodeConverter();
-    private static final LanguageCodeConverter languageCodeConverter = new LanguageCodeConverter();
+    private static final CountryCodeConverter COUNTRY_CODE_CONVERTER = new CountryCodeConverter();
+    private static final LanguageCodeConverter LANGUAGE_CODE_CONVERTER = new LanguageCodeConverter();
 
     /**
      * This is the main entry point of our Translation System!<br/>
@@ -48,10 +48,8 @@ public class Main {
             if (QUIT.equals(language)) {
                 break;
             }
-            String countryCode = countryCodeConverter.fromCountry(country);  // Convert country name to code
-            String languageCode = languageCodeConverter.fromLanguage(language);  // Convert language name to code
-
-
+            String countryCode = countryCodeConverter.fromCountry(country);
+            String languageCode = languageCodeConverter.fromLanguage(language);
             System.out.println(country + " in " + language + " is " + translator.translate(countryCode, languageCode));
             System.out.println("Press enter to continue or quit to exit.");
             Scanner s = new Scanner(System.in);

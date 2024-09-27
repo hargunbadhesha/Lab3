@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,22 +20,22 @@ public class LanguageCodeConverter {
      */
 
     public LanguageCodeConverter() {
+
         this("language-codes.txt");
     }
-
-
     /**
      * Overloaded constructor which allows us to specify the filename to load the language code data from.
      * @param filename the name of the file in the resources folder to load the data from
      * @throws RuntimeException if the resource file can't be loaded properly
      */
+
     public LanguageCodeConverter(String filename) {
 
         try {
             List<String> lines = Files.readAllLines(Paths.get(getClass()
-                    .getClassLoader().getResource(filename).toURI()));\
+                    .getClassLoader().getResource(filename).toURI()));
             for (String line : lines.subList(1, lines.size())) {
-                String[] parts = line.split("\t");  // Assuming tab-delimited file
+                String[] parts = line.split("\t");
                 String code = parts[0].trim();
                 String language = parts[1].trim();
 
